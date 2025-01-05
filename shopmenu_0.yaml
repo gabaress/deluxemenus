@@ -415,6 +415,149 @@ items:
       - '[console] eco give %player_name% %math_{checkitem_amount_mat:sniffer_egg}*25%'
       - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:sniffer_egg% x Sniffer Egg &ffor &7%math_{checkitem_amount_mat:sniffer_egg}*25% Tokens&f.'
       - '[console] minecraft:clear %player_name% sniffer_egg'
+  'item11':
+    material: sniffer_egg
+    slot: 22
+    lore:
+    - ''
+    - "&7Buy price:"
+    - "&8This item cannot be bought."
+    - ''
+    - "&7Sell price:"
+    - "&8+ &a25 Tokens"
+    - '                                   '
+    - '&eRight click to sell'
+    - '&eShift + right click to sell all'
+    right_click_requirement:
+      requirements:
+        condition0:
+          type: has item
+          material: 'sniffer_egg'
+          strict: true
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+    right_click_commands:
+    - '[console] eco give %player_name% 25'
+    - '[console] minecraft:clear %player_name% sniffer_egg 1'
+    - '[message] &f[&6!&f] &fYou sold &71 x Sniffer Egg &ffor &725 Tokens&f.'
+    shift_right_click_commands:
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:sniffer_egg}*25%'
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:sniffer_egg% x Sniffer Egg &ffor &7%math_{checkitem_amount_mat:sniffer_egg}*25% Tokens&f.'
+    - '[console] minecraft:clear %player_name% sniffer_egg'
+
+  'item12':
+    material: dead_bush
+    slot: 23
+    lore:
+    - ''
+    - "&7Buy price:"
+    - "&8This item cannot be bought."
+    - ''
+    - "&7Sell price:"
+    - "&8+ &a0.50 Tokens"
+    - '                                   '
+    - '&eRight click to sell'
+    - '&eShift + right click to sell all'
+    right_click_requirement:
+      requirements:
+        condition0:
+          type: has item
+          material: 'dead_bush'
+          strict: true
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+    right_click_commands:
+    - '[console] eco give %player_name% 0.50'
+    - '[console] minecraft:clear %player_name% dead_bush 1'
+    - '[message] &f[&6!&f] &fYou sold &71 x Dead Bush &ffor &70.50 Tokens&f.'
+    shift_right_click_commands:
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:dead_bush}*0.50%'
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:dead_bush% x Dead Bush &ffor &7%math_{checkitem_amount_mat:dead_bush}*0.50% Tokens&f.'
+    - '[console] minecraft:clear %player_name% dead_bush'
+
+  'item13':
+    material: clay_ball
+    slot: 24
+    lore:
+    - ''
+    - "&7Buy price:"
+    - "&8- &c3.12 Tokens"
+    - ''
+    - "&7Sell price:"
+    - "&8+ &a0.78 Tokens"
+    - '                                   '
+    - '&eLeft click to buy'
+    - '&eRight click to sell'
+    - '&eShift + right click to sell all'
+    left_click_requirement:
+      requirements:
+        condition0:
+          type: has money
+          amount: 3.12
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+    right_click_requirement:
+      requirements:
+        condition0:
+          type: has item
+          material: 'clay_ball'
+          strict: true
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+    left_click_commands:
+    - '[console] eco take %player_name% 3.12'
+    - '[console] minecraft:give %player_name% clay_ball 1'
+    - '[message] &f[&6!&f] &fYou bought &71 x Clay Ball &ffor &73.12 Tokens&f.'
+    right_click_commands:
+    - '[console] eco give %player_name% 0.78'
+    - '[console] minecraft:clear %player_name% clay_ball 1'
+    - '[message] &f[&6!&f] &fYou sold &71 x Clay Ball &ffor &70.78 Tokens&f.'
+    shift_right_click_commands:
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:clay_ball}*0.78%'
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:clay_ball% x Clay Ball &ffor &7%math_{checkitem_amount_mat:clay_ball}*0.78% Tokens&f.'
+    - '[console] minecraft:clear %player_name% clay_ball'
+
+  'item14':
+    material: bell
+    slot: 25
+    lore:
+    - ''
+    - "&7Buy price:"
+    - "&8- &c300 Tokens"
+    - ''
+    - "&7Sell price:"
+    - "&8+ &a50 Tokens"
+    - '                                   '
+    - '&eLeft click to buy'
+    - '&eRight click to sell'
+    - '&eShift + right click to sell all'
+    left_click_requirement:
+      requirements:
+        condition0:
+          type: has money
+          amount: 300
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+    right_click_requirement:
+      requirements:
+        condition0:
+          type: has item
+          material: 'bell'
+          strict: true
+          deny_commands:
+          - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+    left_click_commands:
+    - '[console] eco take %player_name% 300'
+    - '[console] minecraft:give %player_name% bell 1'
+    - '[message] &f[&6!&f] &fYou bought &71 x Bell &ffor &7300 Tokens&f.'
+    right_click_commands:
+    - '[console] eco give %player_name% 50'
+    - '[console] minecraft:clear %player_name% bell 1'
+    - '[message] &f[&6!&f] &fYou sold &71 x Bell &ffor &750 Tokens&f.'
+    shift_right_click_commands:
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:bell}*50%'
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:bell% x Bell &ffor &7%math_{checkitem_amount_mat:bell}*50% Tokens&f.'
+    - '[console] minecraft:clear %player_name% bell'
 
   'Border':
     material: GRAY_STAINED_GLASS_PANE
