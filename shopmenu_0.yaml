@@ -176,10 +176,10 @@ items:
     right_click_commands:
     - '[console] eco give %player_name% 2.08'
     - '[console] minecraft:clear %player_name% salmon 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Salmon &ffor &72.08 Tokens&f.'
+    - '[message] &f[&6!&f] &fYou sold &71 x Raw Salmon &ffor &72.08 Tokens&f.'
     shift_right_click_commands:
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:salmon}*2.08%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:salmon% x Salmon &ffor &7%math_{checkitem_amount_mat:salmon}*2.08% Tokens&f.'
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:salmon% x Raw Salmon &ffor &7%math_{checkitem_amount_mat:salmon}*2.08% Tokens&f.'
     - '[console] minecraft:clear %player_name% salmon'
 
   'item5':
