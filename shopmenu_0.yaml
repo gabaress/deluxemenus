@@ -1,952 +1,1901 @@
 open_command: shop0
 
+
+
 size: 54
+
+
 
 menu_title: 'Shop'
 
+
+
 open_requirement:
+
   requirements:
+
     permission:
+
       type: has permission
+
       permission: deluxemenus.admin
+
       deny_commands:
+
         - '[message] &f[&6!&f] &cYou don''t have permission to do that!'
+
+
 
 update_interval: 1
 
+
+
 items:
 
+
+
   'item0':
+
     material: diamond
+
     slot: 10
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c150 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a100 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 150
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'diamond'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 150'
+
     - '[console] minecraft:give %player_name% diamond 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Diamond &ffor &7150 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 100'
+
     - '[console] minecraft:clear %player_name% diamond 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Diamond &ffor &7100 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:diamond}*100%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:diamond% x Diamond &ffor &7%math_{checkitem_amount_mat:diamond}*100% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% diamond'
 
+
+
   'item1':
+
     material: stone_axe
+
     slot: 42
+
     display_name: "&r&eBingonimbus 2000"
+
     lore:
+
     - ''
+
     - "&7When in Main Hand:"
+
     - "&9+50 Mining Efficiency"
+
     - ''
+
     - "&8Cut down trees in style! With"
+
     - "&8the Bingonimbus 2000"
+
     - "&8efficiency is a problem of"
+
     - "&8the past."
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c128000 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8This item can not be sold."
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     hide_attributes: true
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 128000
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 128000'
+
     - '[console] minecraft:give %player_name% stone_axe[attribute_modifiers=[{id:"mining_efficiency",type:"mining_efficiency",amount:50,operation:"add_value",slot:"mainhand"}],custom_model_data={floats:[800]},custom_name=''{"color":"yellow","italic":false,"text":"Bingonimbus 2000"}''] 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Bingonimbus 2000 &ffor &7128000 Tokens&f.'
 
+
+
   'item2':
+
     material: amethyst_shard
+
     slot: 11
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a1.56 Tokens"
+
+    - "&8+ &a2 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'amethyst_shard'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 1.56'
+
+    - '[console] eco give %player_name% 2'
+
     - '[console] minecraft:clear %player_name% amethyst_shard 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Amethyst Shard &ffor &71.56 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Amethyst Shard &ffor &72 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:amethyst_shard}*1.56%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:amethyst_shard% x Amethyst Shard &ffor &7%math_{checkitem_amount_mat:amethyst_shard}*1.56% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:amethyst_shard}*2%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:amethyst_shard% x Amethyst Shard &ffor &7%math_{checkitem_amount_mat:amethyst_shard}*2% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% amethyst_shard'
 
+
+
   'item3':
+
     material: glow_lichen
+
     slot: 12
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a5 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'glow_lichen'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 5'
+
     - '[console] minecraft:clear %player_name% glow_lichen 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Glow Lichen &ffor &75 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:glow_lichen}*5%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:glow_lichen% x Glow Lichen &ffor &7%math_{checkitem_amount_mat:glow_lichen}*5% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% glow_lichen'
 
+
+
   'item4':
+
     material: salmon
+
     slot: 13
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a2.08 Tokens"
+
+    - "&8+ &a3 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'salmon'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 2.08'
+
+    - '[console] eco give %player_name% 3'
+
     - '[console] minecraft:clear %player_name% salmon 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Raw Salmon &ffor &72.08 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Raw Salmon &ffor &73 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:salmon}*2.08%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:salmon% x Raw Salmon &ffor &7%math_{checkitem_amount_mat:salmon}*2.08% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:salmon}*3%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:salmon% x Raw Salmon &ffor &7%math_{checkitem_amount_mat:salmon}*3% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% salmon'
 
+
+
   'item5':
+
     material: pufferfish
+
     slot: 14
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a5 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'pufferfish'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 5'
+
     - '[console] minecraft:clear %player_name% pufferfish 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Pufferfish &ffor &75 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:pufferfish}*5%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:pufferfish% x Pufferfish &ffor &7%math_{checkitem_amount_mat:pufferfish}*5% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% pufferfish'
 
+
+
   'item6':
+
     material: name_tag
+
     slot: 15
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c300 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a50 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 300
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'name_tag'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 300'
+
     - '[console] minecraft:give %player_name% name_tag 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Name Tag &ffor &7300 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 50'
+
     - '[console] minecraft:clear %player_name% name_tag 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Name Tag &ffor &750 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:name_tag}*50%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:name_tag% x Name Tag &ffor &7%math_{checkitem_amount_mat:name_tag}*50% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% name_tag'
 
+
+
   'item7':
+
     material: saddle
+
     slot: 16
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c300 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a50 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 300
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'saddle'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 300'
+
     - '[console] minecraft:give %player_name% saddle 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Saddle &ffor &7300 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 50'
+
     - '[console] minecraft:clear %player_name% saddle 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Saddle &ffor &750 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:saddle}*50%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:saddle% x Saddle &ffor &7%math_{checkitem_amount_mat:saddle}*50% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% saddle'
 
+
+
   'item8':
+
     material: turtle_scute
+
     slot: 19
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a60 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'turtle_scute'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 60'
+
     - '[console] minecraft:clear %player_name% turtle_scute 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Turtle Scute &ffor &760 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:turtle_scute}*60%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:turtle_scute% x Turtle Scute &ffor &7%math_{checkitem_amount_mat:turtle_scute}*60% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% turtle_scute'
 
+
+
   'item9':
+
     material: wet_sponge
+
     slot: 20
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a1 Token"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'wet_sponge'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 1'
+
     - '[console] minecraft:clear %player_name% wet_sponge 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Wet Sponge &ffor &71 Token&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:wet_sponge}*1%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:wet_sponge% x Wet Sponge &ffor &7%math_{checkitem_amount_mat:wet_sponge}*1% Token&f.'
+
     - '[console] minecraft:clear %player_name% wet_sponge'
 
+
+
   'item10':
+
     material: sponge
+
     slot: 21
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a3.13 Tokens"
+
+    - "&8+ &a4 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'sponge'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 3.13'
+
+    - '[console] eco give %player_name% 4'
+
     - '[console] minecraft:clear %player_name% sponge 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Sponge &ffor &73.13 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Sponge &ffor &74 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:sponge}*3.13%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:sponge% x Sponge &ffor &7%math_{checkitem_amount_mat:sponge}*3.13% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:sponge}*4%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:sponge% x Sponge &ffor &7%math_{checkitem_amount_mat:sponge}*4% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% sponge'
 
+
+
   'item11':
+
     material: sniffer_egg
+
     slot: 22
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a25 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'sniffer_egg'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 25'
+
     - '[console] minecraft:clear %player_name% sniffer_egg 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Sniffer Egg &ffor &725 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:sniffer_egg}*25%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:sniffer_egg% x Sniffer Egg &ffor &7%math_{checkitem_amount_mat:sniffer_egg}*25% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% sniffer_egg'
 
+
+
   'item12':
+
     material: dead_bush
+
     slot: 23
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a0.50 Tokens"
+
+    - "&8+ &a1 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'dead_bush'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 0.50'
+
+    - '[console] eco give %player_name% 1'
+
     - '[console] minecraft:clear %player_name% dead_bush 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Dead Bush &ffor &70.50 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Dead Bush &ffor &71 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:dead_bush}*0.50%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:dead_bush% x Dead Bush &ffor &7%math_{checkitem_amount_mat:dead_bush}*0.50% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:dead_bush}*1%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:dead_bush% x Dead Bush &ffor &7%math_{checkitem_amount_mat:dead_bush}*1% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% dead_bush'
 
+
+
   'item13':
+
     material: clay_ball
+
     slot: 24
+
     lore:
+
     - ''
+
     - "&7Buy price:"
-    - "&8- &c3.12 Tokens"
+
+    - "&8- &c4 Tokens"
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a0.78 Tokens"
+
+    - "&8+ &a1 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
-          amount: 3.12
+
+          amount: 4
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'clay_ball'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
-    - '[console] eco take %player_name% 3.12'
+
+    - '[console] eco take %player_name% 4'
+
     - '[console] minecraft:give %player_name% clay_ball 1'
-    - '[message] &f[&6!&f] &fYou bought &71 x Clay Ball &ffor &73.12 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou bought &71 x Clay Ball &ffor &74 Tokens&f.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 0.78'
+
+    - '[console] eco give %player_name% 1'
+
     - '[console] minecraft:clear %player_name% clay_ball 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Clay Ball &ffor &70.78 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Clay Ball &ffor &71 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:clay_ball}*0.78%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:clay_ball% x Clay Ball &ffor &7%math_{checkitem_amount_mat:clay_ball}*0.78% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:clay_ball}*1%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:clay_ball% x Clay Ball &ffor &7%math_{checkitem_amount_mat:clay_ball}*1% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% clay_ball'
 
+
+
   'item14':
+
     material: bell
+
     slot: 25
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c300 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a50 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 300
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'bell'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 300'
+
     - '[console] minecraft:give %player_name% bell 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Bell &ffor &7300 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 50'
+
     - '[console] minecraft:clear %player_name% bell 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Bell &ffor &750 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:bell}*50%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:bell% x Bell &ffor &7%math_{checkitem_amount_mat:bell}*50% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% bell'
 
+
+
   'item15':
+
     material: experience_bottle
+
     slot: 28
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c500 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a125 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 500
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'experience_bottle'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 500'
+
     - '[console] minecraft:give %player_name% experience_bottle 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Experience Bottle &ffor &7500 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 125'
+
     - '[console] minecraft:clear %player_name% experience_bottle 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Experience Bottle &ffor &7125 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:experience_bottle}*125%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:experience_bottle% x Experience Bottle &ffor &7%math_{checkitem_amount_mat:experience_bottle}*125% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% experience_bottle'
 
+
+
   'item16':
+
     material: iron_horse_armor
+
     slot: 29
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c200 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a50 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 200
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'iron_horse_armor'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 200'
+
     - '[console] minecraft:give %player_name% iron_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Iron Horse Armor &ffor &7200 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 50'
+
     - '[console] minecraft:clear %player_name% iron_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Iron Horse Armor &ffor &750 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:iron_horse_armor}*50%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:iron_horse_armor% x Iron Horse Armor &ffor &7%math_{checkitem_amount_mat:iron_horse_armor}*50% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% iron_horse_armor'
 
+
+
   'item17':
+
     material: golden_horse_armor
+
     slot: 30
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c300 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a75 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 300
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'golden_horse_armor'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 300'
+
     - '[console] minecraft:give %player_name% golden_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Golden Horse Armor &ffor &7300 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 75'
+
     - '[console] minecraft:clear %player_name% golden_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Golden Horse Armor &ffor &775 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:golden_horse_armor}*75%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:golden_horse_armor% x Golden Horse Armor &ffor &7%math_{checkitem_amount_mat:golden_horse_armor}*75% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% golden_horse_armor'
 
+
+
   'item18':
+
     material: diamond_horse_armor
+
     slot: 31
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c1000 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a250 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 1000
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'diamond_horse_armor'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 1000'
+
     - '[console] minecraft:give %player_name% diamond_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Diamond Horse Armor &ffor &71000 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 250'
+
     - '[console] minecraft:clear %player_name% diamond_horse_armor 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Diamond Horse Armor &ffor &7250 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:diamond_horse_armor}*250%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:diamond_horse_armor% x Diamond Horse Armor &ffor &7%math_{checkitem_amount_mat:diamond_horse_armor}*250% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% diamond_horse_armor'
 
+
+
   'item19':
+
     material: enchanted_golden_apple
+
     slot: 32
+
     lore:
+
     - ''
+
     - "&7Buy price:"
     - "&8- &c32000 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a1600 Tokens"
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 32000
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'enchanted_golden_apple'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 32000'
+
     - '[console] minecraft:give %player_name% enchanted_golden_apple 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x Enchanted Golden Apple &ffor &732000 Tokens&f.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 1600'
+
     - '[console] minecraft:clear %player_name% enchanted_golden_apple 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Enchanted Golden Apple &ffor &71600 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:enchanted_golden_apple}*1600%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:enchanted_golden_apple% x Enchanted Golden Apple &ffor &7%math_{checkitem_amount_mat:enchanted_golden_apple}*1600% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% enchanted_golden_apple'
 
+
+
   'item20':
+
     material: gilded_blackstone
+
     slot: 33
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a17 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'gilded_blackstone'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 17'
+
     - '[console] minecraft:clear %player_name% gilded_blackstone 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Gilded Blackstone &ffor &717 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:gilded_blackstone}*17%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:gilded_blackstone% x Gilded Blackstone &ffor &7%math_{checkitem_amount_mat:gilded_blackstone}*17% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% gilded_blackstone'
+
     
+
   'item21':
+
     material: phantom_membrane
+
     slot: 34
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a2 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'phantom_membrane'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 2'
+
     - '[console] minecraft:clear %player_name% phantom_membrane 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Phantom Membrane &ffor &72 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:phantom_membrane}*2%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:phantom_membrane% x Phantom Membrane &ffor &7%math_{checkitem_amount_mat:phantom_membrane}*2% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% phantom_membrane'
 
+
+
   'item22':
+
     material: zombie_head
+
     slot: 37
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a1500 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'zombie_head'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 1500'
+
     - '[console] minecraft:clear %player_name% zombie_head 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Zombie Head &ffor &71500 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:zombie_head}*1500%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:zombie_head% x Zombie Head &ffor &7%math_{checkitem_amount_mat:zombie_head}*1500% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% zombie_head'
 
+
+
   'item23':
+
     material: creeper_head
+
     slot: 38
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a1500 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'creeper_head'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 1500'
+
     - '[console] minecraft:clear %player_name% creeper_head 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Creeper Head &ffor &71500 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:creeper_head}*1500%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:creeper_head% x Creeper Head &ffor &7%math_{checkitem_amount_mat:creeper_head}*1500% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% creeper_head'
 
+
+
   'item24':
+
     material: skeleton_skull
+
     slot: 39
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
-    - "&8+ &a1500 Tokens"
+
+    - "&8+ &a150 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'skeleton_skull'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
-    - '[console] eco give %player_name% 1500'
+
+    - '[console] eco give %player_name% 150'
+
     - '[console] minecraft:clear %player_name% skeleton_skull 1'
-    - '[message] &f[&6!&f] &fYou sold &71 x Skeleton Skull &ffor &71500 Tokens&f.'
+
+    - '[message] &f[&6!&f] &fYou sold &71 x Skeleton Skull &ffor &7150 Tokens&f.'
+
     shift_right_click_commands:
-    - '[console] eco give %player_name% %math_{checkitem_amount_mat:skeleton_skull}*1500%'
-    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:skeleton_skull% x Skeleton Skull &ffor &7%math_{checkitem_amount_mat:skeleton_skull}*1500% Tokens&f.'
+
+    - '[console] eco give %player_name% %math_{checkitem_amount_mat:skeleton_skull}*150%'
+
+    - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:skeleton_skull% x Skeleton Skull &ffor &7%math_{checkitem_amount_mat:skeleton_skull}*150% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% skeleton_skull'
 
+
+
   'item25':
+
     material: piglin_head
+
     slot: 40
+
     lore:
+
     - ''
+
     - "&7Buy price:"
+
     - "&8This item cannot be bought."
+
     - ''
+
     - "&7Sell price:"
+
     - "&8+ &a3000 Tokens"
+
     - '                                   '
+
     - '&eRight click to sell'
+
     - '&eShift + right click to sell all'
+
     right_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has item
+
           material: 'piglin_head'
+
           strict: true
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have that item to sell.'
+
     right_click_commands:
+
     - '[console] eco give %player_name% 3000'
+
     - '[console] minecraft:clear %player_name% piglin_head 1'
+
     - '[message] &f[&6!&f] &fYou sold &71 x Piglin Head &ffor &73000 Tokens&f.'
+
     shift_right_click_commands:
+
     - '[console] eco give %player_name% %math_{checkitem_amount_mat:piglin_head}*3000%'
+
     - '[message] &f[&6!&f] &fYou sold &7%checkitem_amount_mat:piglin_head% x Piglin Head &ffor &7%math_{checkitem_amount_mat:piglin_head}*3000% Tokens&f.'
+
     - '[console] minecraft:clear %player_name% piglin_head'
 
+
+
   'item26':
+
     material: cookie
+
     slot: 41
+
     display_name: "&r&eCookie Of Truth"
+
     lore:
+
     - ''
+
     - "&8Stolen from cookie clicker:p"
+
     - ''
+
     - "&7Buy price:"
+
     - "&8- &c64000 Tokens"
+
     - ''
+
     - "&7Sell price:"
+
     - "&8This item can not be sold."
+
     - '                                   '
+
     - '&eLeft click to buy'
+
     hide_attributes: true
+
     left_click_requirement:
+
       requirements:
+
         condition0:
+
           type: has money
+
           amount: 64000
+
           deny_commands:
+
           - '[message] &f[&6!&f] &cYou don''t have enough Tokens to buy.'
+
     left_click_commands:
+
     - '[console] eco take %player_name% 64000'
+
     - '[console] minecraft:give %player_name% cookie{Enchantments:[{id:knockback,lvl:20}]},custom_name=''{"color":"yellow","italic":false,"text":"Cookie Of Truth"}''] 1'
+
     - '[message] &f[&6!&f] &fYou bought &71 x The Cookie Of Truth &ffor &764000 Tokens&f.'
+
+
 
   'Border':
     material: GRAY_STAINED_GLASS_PANE
@@ -961,14 +1910,14 @@ items:
       - 35
       - 36
       - 44
-      - 45-48
+      - 45-47
       - 51-53
     display_name: " "
 
   'back':
     material: ARROW
     data: 1
-    slot: 49
+    slot: 48
     display_name: "&aGo Back"
     lore:
       - "&7To Menu"
@@ -980,11 +1929,20 @@ items:
   'balance':
     material: EMERALD
     data: 1
-    slot: 50
-    display_name: "&7You have: &a%vault_eco_balance% Tokens"
+    slot: 49
+    display_name: "&7You have: &a%vault_eco_balance_commas% Tokens"
     enchantments:
       - DURABILITY;1
     hide_enchantments: true
+    update: true
+
+  'sort':
+    material: HOPPER
+    data: 1
+    slot: 50
+    display_name: "&6Sorted by: &aDefault"
+    lore:
+      - "&cCurrently unavailable."
     update: true
 
 sweet: true
